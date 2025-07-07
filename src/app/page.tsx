@@ -124,7 +124,7 @@ export default function HomePage({ }) {
       </main>
 
       {/* Chatbot avec mode sombre / clair */}
-      <ChatbotWidget darkMode={darkMode} />
+      <ChatbotWidget />
     </>
   );
 }
