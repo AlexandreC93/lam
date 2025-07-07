@@ -36,7 +36,7 @@ export default function ChatbotWidget({ darkMode }) {
           { sender: "bot", text: "Désolé, une erreur est survenue." },
         ]);
       }
-    } catch (error) {
+    } catch (_) {
       setMessages((prev) => [
         ...prev,
         { sender: "bot", text: "Impossible de joindre le serveur." },
