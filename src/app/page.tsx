@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useContext } from "react";
+import { useContext } from "react";
 import { Button } from "@/components/ui/button";
 import { DarkModeContext } from "../components/DarkModeProvider"; // <-- adapte le chemin
 
