@@ -1,11 +1,13 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
+import { DarkModeContext } from "@/components/DarkModeProvider";
 import { ChevronDown, MessageCircle } from "lucide-react";
 
-export default function ChatbotWidget({ darkMode }) {
+export default function ChatbotWidget({ }) {
+  const { darkMode } = useContext(DarkModeContext);
   const [messages, setMessages] = useState([
     { sender: "bot", text: "Bonjour ! Comment puis-je vous aider aujourd'hui ?" },
   ]);
@@ -80,13 +82,12 @@ export default function ChatbotWidget({ darkMode }) {
           {messages.map((msg, i) => (
             <div
               key={i}
-              className={`p-2 rounded-lg max-w-xs break-words ${
-                msg.sender === "bot"
+              className={`p-2 rounded-lg max-w-xs break-words ${msg.sender === "bot"
                   ? darkMode
                     ? "bg-zinc-700 text-white"
                     : "bg-zinc-100 text-zinc-800"
                   : "bg-purple-600 text-white ml-auto"
-              }`}
+                }`}
             >
               {msg.text}
             </div>
