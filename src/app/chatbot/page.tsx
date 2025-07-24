@@ -23,7 +23,8 @@ export default function ChatbotWidget() {
 
   const handleSend = async () => {
     if (!input.trim()) return;
-    const newMessages = [...messages, { sender: "user", text: input }];
+    const newMessages = [...messages, { sender: "user" as const, text: input }];
+
     setMessages(newMessages);
     setInput("");
 
@@ -120,13 +121,12 @@ export default function ChatbotWidget() {
           {messages.map((msg, i) => (
             <div
               key={i}
-              className={`p-2 rounded-lg max-w-xs break-words ${
-                msg.sender === "bot"
+              className={`p-2 rounded-lg max-w-xs break-words ${msg.sender === "bot"
                   ? darkMode
                     ? "bg-zinc-700 text-white"
                     : "bg-zinc-100 text-zinc-800"
                   : "bg-purple-600 text-white ml-auto"
-              }`}
+                }`}
             >
               {msg.text && <p>{msg.text}</p>}
               {msg.imageUrl && (
